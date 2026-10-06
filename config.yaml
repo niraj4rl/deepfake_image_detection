@@ -1,0 +1,25 @@
+seed: 42
+paths:
+  raw_data: data/raw
+  faces: data/faces
+  manifest: data/manifest.csv
+  features: data/features/features.npz
+  models: models
+data:
+  manipulations: [Deepfakes, FaceSwap, Face2Face]
+  quality: c23
+  subset: {train_ids: 100, val_ids: 20, test_ids: 20}
+  frames_per_video: 10
+  face_size: 256
+  face_margin: 1.3
+features:
+  ela_qualities: [90, 75]
+  fft_radial_bins: 64
+training:
+  cv_folds: 5
+  scoring: roc_auc
+backend:
+  max_upload_mb: 10
+  max_batch_files: 20
+  cors_origins: ["http://localhost:5173"]
+  include_evidence: false
